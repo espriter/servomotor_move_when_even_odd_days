@@ -47,22 +47,22 @@ else:
    print("{0} is Odd".format(today))
    #홀수 flag up
    pwm.ChangeDutyCycle(duty)
-   sleep(0.9)
+   sleep(0.93)
    pwm.ChangeDutyCycle(0)
-   sleep(0.9) # 5초 딜레이 후 / 추후 24시간 뒤로 바꾸던가
+   sleep(0.93) # 5초 딜레이 후 / 추후 24시간 뒤로 바꾸던가
    pwm.ChangeDutyCycle(duty)
-   sleep(0.9)
+   sleep(0.93)
    pwm.ChangeDutyCycle(0)
-   sleep(0.9)
+   sleep(0.93)
    pwm.ChangeDutyCycle(duty)
-   sleep(0.9)
+   sleep(0.93)
    pwm.ChangeDutyCycle(0)
    sleep(5)
    # 원상복귀
    pwm.ChangeDutyCycle(duty)
-   sleep(0.8)
+   sleep(0.93)
    pwm.ChangeDutyCycle(0)
-   sleep(0.9)
+   sleep(0.93)
 
 pwm.stop()
 GPIO.cleanup()
