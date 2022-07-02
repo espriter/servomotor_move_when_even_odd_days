@@ -43,10 +43,6 @@ if (today % 2) == 0:
    sleep(1)
    pwm.ChangeDutyCycle(0)
    sleep(1)
-   pwm.ChangeDutyCycle(duty)
-   sleep(1)
-   pwm.ChangeDutyCycle(0)
-   sleep(1)
    print("원상복귀 완료")
 
    print("짝수 Flag Up")
