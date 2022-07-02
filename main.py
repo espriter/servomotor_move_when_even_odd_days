@@ -9,7 +9,6 @@ SERVO_MIN_DUTY = 3    # 서보의 최소(0도) 위치의 주기
 now = datetime.datetime.now()
 today = now.day
 
-
 # 서보모터 init
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(servo_pin, GPIO.OUT)
@@ -20,22 +19,19 @@ pwm.start(0)  # 서보의 0도 위치(0.6ms)이동:값 3.0은 pwm주기인 20ms�
 degree = 91.7
 duty = SERVO_MIN_DUTY+(degree*(SERVO_MAX_DUTY-SERVO_MIN_DUTY)/180.0)
 print("Degree: {} to {}(Duty)".format(degree, duty))
-
 # 91.7도 변환
 pwm.ChangeDutyCycle(duty)
+
+# 홀수 짝수에 따라 회전 횟수 변경
+if (today % 2) == 0:
+   print("{0} is Even".format(today))
+   pwm.ChangeDutyCycle(duty)
+   sleep(1)
+   print("짝수 Flag Up")
+
+else:
+   print("{0} is Odd".format(today))
+   sleep(1)
+
 pwm.stop()
 GPIO.cleanup()
-sleep(5)
-print("함수 진행 확인 ")
-#
-# # 홀수 짝수에 따라 회전 횟수 변경
-# if (today % 2) == 0:
-#    print("{0} is Even".format(today))
-#    run_motor()
-#    print("짝수 Flag Up")
-#
-# else:
-#    print("{0} is Odd".format(today))
-#    run_motor()
-#    sleep(1)
-#
