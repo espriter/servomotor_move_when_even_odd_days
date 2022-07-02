@@ -21,20 +21,21 @@ duty = SERVO_MIN_DUTY+(degree*(SERVO_MAX_DUTY-SERVO_MIN_DUTY)/180.0)
 print("Degree: {} to {}(Duty)".format(degree, duty))
 pwm.ChangeDutyCycle(duty)
 
-pwm.ChangeDutyCycle(duty)
-sleep(0.97)
-# 짝수 Flag Up
-pwm.ChangeDutyCycle(0)
-sleep(5) # 5초 딜레이 후 / 추후 24시간 뒤로 바꾸던가
-# 원상 복귀
+print("{0} is Odd".format(today))
+#홀수 flag up
 pwm.ChangeDutyCycle(duty)
 sleep(0.97)
 pwm.ChangeDutyCycle(0)
+sleep(0.97) # 5초 딜레이 후 / 추후 24시간 뒤로 바꾸던가
+pwm.ChangeDutyCycle(duty)
+sleep(0.97)
+pwm.ChangeDutyCycle(0)
 sleep(0.97)
 pwm.ChangeDutyCycle(duty)
 sleep(0.97)
 pwm.ChangeDutyCycle(0)
-sleep(1)
+sleep(5)
+# 원상복귀
 pwm.ChangeDutyCycle(duty)
 sleep(0.97)
 pwm.ChangeDutyCycle(0)
