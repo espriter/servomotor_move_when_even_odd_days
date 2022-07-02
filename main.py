@@ -25,8 +25,18 @@ today = now.day
 # 홀수 짝수에 따라 회전 횟수 변경
 if (today % 2) == 0:
    print("{0} is Even".format(today))
-   pwm.ChangeDutyCycle(duty) # flag up
+   pwm.ChangeDutyCycle(duty)
    sleep(1)
+   print("짝수 Flag Up")
+   sleep(1)
+   pwm.ChangeDutyCycle(duty)
+   sleep(1)
+   pwm.ChangeDutyCycle(duty)
+   sleep(1)
+   pwm.ChangeDutyCycle(duty)
+   sleep(1)
+   print("원상복귀 완료")
+
 else:
    print("{0} is Odd".format(today))
    pwm.ChangeDutyCycle(duty) # flag up
