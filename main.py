@@ -9,8 +9,8 @@ pwm.start(3.0)  # 서보의 0도 위치(0.6ms)이동:값 3.0은 pwm주기인 20m
 
 
 # Flag Up
-# pwm.ChangeDutyCycle(7.5)
-# time.sleep(10)
+pwm.ChangeDutyCycle(8.31)
+time.sleep(1.0)
 
 # Flag Down
 # pwm.ChangeDutyCycle(7.5)
