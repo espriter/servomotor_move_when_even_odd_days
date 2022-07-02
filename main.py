@@ -1,6 +1,6 @@
 import RPi.GPIO as GPIO
 import datetime
-import time import sleep
+from time import sleep
 
 # 초기 설정
 servo_pin = 18
