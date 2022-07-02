@@ -26,11 +26,11 @@ today = now.day
 if (today % 2) == 0:
    print("{0} is Even".format(today))
    pwm.ChangeDutyCycle(duty) # flag up
-   sleep(10)
+   sleep(1)
 else:
    print("{0} is Odd".format(today))
    pwm.ChangeDutyCycle(duty) # flag up
-   sleep(10)
+   sleep(1)
 
 pwm.stop()
 GPIO.cleanup()
