@@ -26,12 +26,13 @@ pwm.ChangeDutyCycle(duty)
 if (today % 2) == 0:
    print("{0} is Even".format(today))
    pwm.ChangeDutyCycle(duty)
-   sleep(1)
+   sleep(10)
+   pwm.ChangeDutyCycle(duty)
+   sleep(10)
    print("짝수 Flag Up")
-
 else:
    print("{0} is Odd".format(today))
-   sleep(1)
+   sleep(10)
 
 pwm.stop()
 GPIO.cleanup()
