@@ -31,6 +31,7 @@ if (today % 2) == 0:
    # 짝수 Flag Up
    pwm.ChangeDutyCycle(0)
    sleep(5) # 5초 딜레이 후 / 추후 24시간 뒤로 바꾸던가
+   print("5초 종료")
 
    pwm.ChangeDutyCycle(reverse_duty)
    sleep(1)
