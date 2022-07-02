@@ -26,31 +26,11 @@ today = now.day
 if (today % 2) == 0:
    print("{0} is Even".format(today))
    pwm.ChangeDutyCycle(duty) # flag up
-   pwm.stop()
    sleep(10)
-   print("짝수 - 원상 복구를 시작합니다.")
-   pwm.ChangeDutyCycle(duty)
-   pwm.stop()
-   sleep(5)
-   print("1차")
-   pwm.ChangeDutyCycle(duty)
-   pwm.stop()
-   sleep(5)
-   print("2차")
-   pwm.ChangeDutyCycle(duty)
-   pwm.stop()
-   sleep(5)
-   print("3차")
 else:
    print("{0} is Odd".format(today))
    pwm.ChangeDutyCycle(duty) # flag up
-   sleep(1)
-   pwm.ChangeDutyCycle(duty)
-   sleep(1)
-   pwm.ChangeDutyCycle(duty)
    sleep(10)
-   print("홀수 - 원상복구를 시작합니다")
-   pwm.ChangeDutyCycle(duty)
 
 pwm.stop()
 GPIO.cleanup()
