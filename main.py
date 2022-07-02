@@ -39,16 +39,16 @@ if (today % 2) == 0:
    print("2차")
    pwm.ChangeDutyCycle(duty)
    pwm.stop()
-   time.sleep(5)
+   sleep(5)
    print("3차")
 else:
    print("{0} is Odd".format(today))
    pwm.ChangeDutyCycle(duty) # flag up
-   time.sleep(1)
+   sleep(1)
    pwm.ChangeDutyCycle(duty)
-   time.sleep(1)
+   sleep(1)
    pwm.ChangeDutyCycle(duty)
-   time.sleep(10)
+   sleep(10)
    print("홀수 - 원상복구를 시작합니다")
    pwm.ChangeDutyCycle(duty)
 
