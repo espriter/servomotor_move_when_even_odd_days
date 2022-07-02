@@ -18,6 +18,7 @@ pwm.start(0)  # 서보의 0도 위치(0.6ms)이동:값 3.0은 pwm주기인 20ms�
 # 각도 설정 및 주파수 전환
 degree = 91.3
 duty = SERVO_MIN_DUTY+(degree*(SERVO_MAX_DUTY-SERVO_MIN_DUTY)/180.0)
+reverse_duty = 360 - degree
 print("Degree: {} to {}(Duty)".format(degree, duty))
 # 91.7도 변환
 pwm.ChangeDutyCycle(duty)
@@ -31,18 +32,9 @@ if (today % 2) == 0:
    pwm.ChangeDutyCycle(0)
    sleep(5) # 5초 딜레이 후 / 추후 24시간 뒤로 바꾸던가
 
-   pwm.ChangeDutyCycle(duty)
+   pwm.ChangeDutyCycle(reverse_duty)
    sleep(1)
-   pwm.ChangeDutyCycle(0)
-   sleep(1)
-   pwm.ChangeDutyCycle(duty)
-   sleep(1)
-   pwm.ChangeDutyCycle(0)
-   sleep(1)
-   pwm.ChangeDutyCycle(duty)
-   sleep(1)
-   pwm.ChangeDutyCycle(0)
-   sleep(1)
+
    print("원상복귀 완료")
 
    print("짝수 Flag Up")
