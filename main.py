@@ -28,14 +28,6 @@ if (today % 2) == 0:
    pwm.ChangeDutyCycle(duty)
    sleep(1)
    print("짝수 Flag Up")
-   sleep(1)
-   pwm.ChangeDutyCycle(duty)
-   sleep(1)
-   pwm.ChangeDutyCycle(duty)
-   sleep(1)
-   pwm.ChangeDutyCycle(duty)
-   sleep(1)
-   print("원상복귀 완료")
 
 else:
    print("{0} is Odd".format(today))
