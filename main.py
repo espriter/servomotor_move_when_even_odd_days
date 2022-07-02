@@ -26,10 +26,10 @@ pwm.ChangeDutyCycle(duty)
 if (today % 2) == 0:
    print("{0} is Even".format(today))
    pwm.ChangeDutyCycle(duty)
-   sleep(0.3)
+   sleep(0.7)
    print("1차 다시 돌기")
    pwm.ChangeDutyCycle(duty)
-   sleep(0.3)
+   sleep(0.7)
    print("짝수 Flag Up")
 else:
    print("{0} is Odd".format(today))
