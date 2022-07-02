@@ -9,7 +9,6 @@ SERVO_MIN_DUTY = 3    # 서보의 최소(0도) 위치의 주기
 now = datetime.datetime.now()
 today = now.day
 
-
 # 서보모터 init
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(servo_pin, GPIO.OUT)
@@ -27,15 +26,3 @@ pwm.stop()
 GPIO.cleanup()
 sleep(5)
 print("함수 진행 확인 ")
-#
-# # 홀수 짝수에 따라 회전 횟수 변경
-# if (today % 2) == 0:
-#    print("{0} is Even".format(today))
-#    run_motor()
-#    print("짝수 Flag Up")
-#
-# else:
-#    print("{0} is Odd".format(today))
-#    run_motor()
-#    sleep(1)
-#
