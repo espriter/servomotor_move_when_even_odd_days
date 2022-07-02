@@ -37,11 +37,11 @@ if (today % 2) == 0:
    pwm.ChangeDutyCycle(0)
    sleep(1)
    pwm.ChangeDutyCycle(duty)
-   sleep(0.7)
+   sleep(0.73)
    pwm.ChangeDutyCycle(0)
    sleep(1)
    pwm.ChangeDutyCycle(duty)
-   sleep(0.7)
+   sleep(0.73)
    pwm.ChangeDutyCycle(0)
    sleep(1)
 
