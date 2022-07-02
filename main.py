@@ -55,7 +55,7 @@ else:
    pwm.ChangeDutyCycle(0)
    sleep(1)
    pwm.ChangeDutyCycle(duty)
-   sleep(0.8)
+   sleep(1)
    pwm.ChangeDutyCycle(0)
    sleep(5)
    # 원상복귀
