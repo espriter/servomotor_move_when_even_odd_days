@@ -26,6 +26,7 @@ def run_motor():
    pwm.stop()
    GPIO.cleanup()
    sleep(5)
+   print("함수 진행 확인 ")
 
 # 홀수 짝수에 따라 회전 횟수 변경
 if (today % 2) == 0:
