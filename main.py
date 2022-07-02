@@ -27,11 +27,20 @@ if (today % 2) == 0:
    print("{0} is Even".format(today))
    pwm.ChangeDutyCycle(duty)
    sleep(1)
+   # 짝수 Flag Up
+   pwm.ChangeDutyCycle(0)
+   sleep(5) # 5초 딜레이 후 / 추후 24시간 뒤로 바꾸던가
+
+   pwm.ChangeDutyCycle(duty)
+   sleep(1)
    pwm.ChangeDutyCycle(0)
    sleep(1)
    pwm.ChangeDutyCycle(duty)
-   print("1차 수행")
    sleep(1)
+   pwm.ChangeDutyCycle(0)
+   sleep(1)
+   print("원상복귀 완료")
+
    print("짝수 Flag Up")
 else:
    print("{0} is Odd".format(today))
