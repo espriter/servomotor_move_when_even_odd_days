@@ -49,16 +49,16 @@ else:
    pwm.ChangeDutyCycle(duty)
    sleep(1)
    pwm.ChangeDutyCycle(0)
-   sleep(1)
+   sleep(1) # 5초 딜레이 후 / 추후 24시간 뒤로 바꾸던가
    pwm.ChangeDutyCycle(duty)
-   sleep(0.8)
+   sleep(1)
    pwm.ChangeDutyCycle(0)
    sleep(1)
    pwm.ChangeDutyCycle(duty)
    sleep(0.8)
    pwm.ChangeDutyCycle(0)
-   sleep(1)
-   # 원상 복귀
+   sleep(5)
+   # 원상복귀
    pwm.ChangeDutyCycle(duty)
    sleep(0.8)
    pwm.ChangeDutyCycle(0)
