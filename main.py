@@ -17,9 +17,9 @@ pwm.start(0)  # 서보의 0도 위치(0.6ms)이동:값 3.0은 pwm주기인 20ms�
 
 # 각도 설정 및 주파수 전환
 degree = 91.3
-reverse_duty = 360 - degree
+reverse_degree = 268.7
 duty = SERVO_MIN_DUTY+(degree*(SERVO_MAX_DUTY-SERVO_MIN_DUTY)/180.0)
-reverse_duty = SERVO_MIN_DUTY+(reverse_duty*(SERVO_MAX_DUTY-SERVO_MIN_DUTY)/180.0)
+reverse_duty = SERVO_MIN_DUTY+(reverse_degree*(SERVO_MAX_DUTY-SERVO_MIN_DUTY)/180.0)
 print("Degree: {} to {}(Duty)".format(degree, duty))
 # 91.7도 변환
 pwm.ChangeDutyCycle(duty)
