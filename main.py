@@ -21,48 +21,67 @@ duty = SERVO_MIN_DUTY+(degree*(SERVO_MAX_DUTY-SERVO_MIN_DUTY)/180.0)
 print("Degree: {} to {}(Duty)".format(degree, duty))
 pwm.ChangeDutyCycle(duty)
 
-# 홀수 짝수에 따라 회전 횟수 변경
-if (today % 2) == 0:
-   print("{0} is Even".format(today))
-   pwm.ChangeDutyCycle(duty)
-   sleep(1)
-   # 짝수 Flag Up
-   pwm.ChangeDutyCycle(0)
-   sleep(5) # 5초 딜레이 후 / 추후 24시간 뒤로 바꾸던가
-   # 원상 복귀
-   pwm.ChangeDutyCycle(duty)
-   sleep(1)
-   pwm.ChangeDutyCycle(0)
-   sleep(1)
-   pwm.ChangeDutyCycle(duty)
-   sleep(0.8)
-   pwm.ChangeDutyCycle(0)
-   sleep(1)
-   pwm.ChangeDutyCycle(duty)
-   sleep(0.8)
-   pwm.ChangeDutyCycle(0)
-   sleep(1)
+pwm.ChangeDutyCycle(duty)
+sleep(0.97)
+# 짝수 Flag Up
+pwm.ChangeDutyCycle(0)
+sleep(5) # 5초 딜레이 후 / 추후 24시간 뒤로 바꾸던가
+# 원상 복귀
+pwm.ChangeDutyCycle(duty)
+sleep(0.97)
+pwm.ChangeDutyCycle(0)
+sleep(0.97)
+pwm.ChangeDutyCycle(duty)
+sleep(0.97)
+pwm.ChangeDutyCycle(0)
+sleep(1)
+pwm.ChangeDutyCycle(duty)
+sleep(0.97)
+pwm.ChangeDutyCycle(0)
+sleep(0.97)
 
-else:
-   print("{0} is Odd".format(today))
-   #홀수 flag up
-   pwm.ChangeDutyCycle(duty)
-   sleep(0.97)
-   pwm.ChangeDutyCycle(0)
-   sleep(0.97) # 5초 딜레이 후 / 추후 24시간 뒤로 바꾸던가
-   pwm.ChangeDutyCycle(duty)
-   sleep(0.97)
-   pwm.ChangeDutyCycle(0)
-   sleep(0.97)
-   pwm.ChangeDutyCycle(duty)
-   sleep(0.97)
-   pwm.ChangeDutyCycle(0)
-   sleep(5)
-   # 원상복귀
-   pwm.ChangeDutyCycle(duty)
-   sleep(0.97)
-   pwm.ChangeDutyCycle(0)
-   sleep(0.97)
+# # 홀수 짝수에 따라 회전 횟수 변경
+# if (today % 2) == 0:
+#    print("{0} is Even".format(today))
+#    pwm.ChangeDutyCycle(duty)
+#    sleep(0.97)
+#    # 짝수 Flag Up
+#    pwm.ChangeDutyCycle(0)
+#    sleep(5) # 5초 딜레이 후 / 추후 24시간 뒤로 바꾸던가
+#    # 원상 복귀
+#    pwm.ChangeDutyCycle(duty)
+#    sleep(0.97)
+#    pwm.ChangeDutyCycle(0)
+#    sleep(0.97)
+#    pwm.ChangeDutyCycle(duty)
+#    sleep(0.97)
+#    pwm.ChangeDutyCycle(0)
+#    sleep(1)
+#    pwm.ChangeDutyCycle(duty)
+#    sleep(0.97)
+#    pwm.ChangeDutyCycle(0)
+#    sleep(0.97)
+#
+# else:
+#    print("{0} is Odd".format(today))
+#    #홀수 flag up
+#    pwm.ChangeDutyCycle(duty)
+#    sleep(0.97)
+#    pwm.ChangeDutyCycle(0)
+#    sleep(0.97) # 5초 딜레이 후 / 추후 24시간 뒤로 바꾸던가
+#    pwm.ChangeDutyCycle(duty)
+#    sleep(0.97)
+#    pwm.ChangeDutyCycle(0)
+#    sleep(0.97)
+#    pwm.ChangeDutyCycle(duty)
+#    sleep(0.97)
+#    pwm.ChangeDutyCycle(0)
+#    sleep(5)
+#    # 원상복귀
+#    pwm.ChangeDutyCycle(duty)
+#    sleep(0.97)
+#    pwm.ChangeDutyCycle(0)
+#    sleep(0.97)
 
 pwm.stop()
 GPIO.cleanup()
