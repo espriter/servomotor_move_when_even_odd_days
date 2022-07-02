@@ -19,7 +19,6 @@ pwm.start(0)  # 서보의 0도 위치(0.6ms)이동:값 3.0은 pwm주기인 20ms�
 degree = 91.3
 duty = SERVO_MIN_DUTY+(degree*(SERVO_MAX_DUTY-SERVO_MIN_DUTY)/180.0)
 print("Degree: {} to {}(Duty)".format(degree, duty))
-# 91.7도 변환
 pwm.ChangeDutyCycle(duty)
 
 # 홀수 짝수에 따라 회전 횟수 변경
@@ -30,8 +29,7 @@ if (today % 2) == 0:
    # 짝수 Flag Up
    pwm.ChangeDutyCycle(0)
    sleep(5) # 5초 딜레이 후 / 추후 24시간 뒤로 바꾸던가
-   print("5초 종료")
-
+   # 원상 복귀
    pwm.ChangeDutyCycle(duty)
    sleep(1)
    pwm.ChangeDutyCycle(0)
@@ -45,12 +43,26 @@ if (today % 2) == 0:
    pwm.ChangeDutyCycle(0)
    sleep(1)
 
-   print("원상복귀 완료")
-
-   print("짝수 Flag Up")
 else:
    print("{0} is Odd".format(today))
-   sleep(10)
+   #홀수 flag up
+   pwm.ChangeDutyCycle(duty)
+   sleep(1)
+   pwm.ChangeDutyCycle(0)
+   sleep(1)
+   pwm.ChangeDutyCycle(duty)
+   sleep(0.8)
+   pwm.ChangeDutyCycle(0)
+   sleep(1)
+   pwm.ChangeDutyCycle(duty)
+   sleep(0.8)
+   pwm.ChangeDutyCycle(0)
+   sleep(1)
+   # 원상 복귀
+   pwm.ChangeDutyCycle(duty)
+   sleep(0.8)
+   pwm.ChangeDutyCycle(0)
+   sleep(1)
 
 pwm.stop()
 GPIO.cleanup()
