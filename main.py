@@ -37,7 +37,7 @@ sleep(0.9)
 pwm.ChangeDutyCycle(0)
 sleep(0)
 pwm.ChangeDutyCycle(duty)
-sleep(0.985)
+sleep(0.98)
 pwm.ChangeDutyCycle(0)
 sleep(0)
 
