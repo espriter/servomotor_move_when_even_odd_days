@@ -16,30 +16,30 @@ pwm = GPIO.PWM(servo_pin, 50)  # 50Hz (서보모터 PWM 동작을 위한 주파�
 pwm.start(0)  # 서보의 0도 위치(0.6ms)이동:값 3.0은 pwm주기인 20ms의 3%를 의미하므로,0.6ms됨.
 
 # 각도 설정 및 주파수 전환
-degree = 90.5
+degree = 92
 duty = SERVO_MIN_DUTY+(degree*(SERVO_MAX_DUTY-SERVO_MIN_DUTY)/180.0)
 print("Degree: {} to {}(Duty)".format(degree, duty))
 pwm.ChangeDutyCycle(duty)
 
 print("{0} is Even".format(today))
 pwm.ChangeDutyCycle(duty)
-sleep(0.97)
+sleep(1)
 # 짝수 Flag Up
 pwm.ChangeDutyCycle(0)
 sleep(5) # 5초 딜레이 후 / 추후 24시간 뒤로 바꾸던가
 # 원상 복귀
 pwm.ChangeDutyCycle(duty)
-sleep(0.97)
-pwm.ChangeDutyCycle(0)
-sleep(0.97)
-pwm.ChangeDutyCycle(duty)
-sleep(0.97)
+sleep(1)
 pwm.ChangeDutyCycle(0)
 sleep(1)
 pwm.ChangeDutyCycle(duty)
-sleep(0.97)
+sleep(1)
 pwm.ChangeDutyCycle(0)
-sleep(0.97)
+sleep(1)
+pwm.ChangeDutyCycle(duty)
+sleep(1)
+pwm.ChangeDutyCycle(0)
+sleep(1)
 
 # # 홀수 짝수에 따라 회전 횟수 변경
 # if (today % 2) == 0:
