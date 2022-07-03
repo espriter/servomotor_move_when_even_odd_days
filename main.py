@@ -21,27 +21,6 @@ duty = SERVO_MIN_DUTY+(degree*(SERVO_MAX_DUTY-SERVO_MIN_DUTY)/180.0)
 print("Degree: {} to {}(Duty)".format(degree, duty))
 pwm.ChangeDutyCycle(duty)
 
-print("{0} is Even".format(today))
-pwm.ChangeDutyCycle(duty)
-sleep(1.05)
-# 짝수 Flag Up
-pwm.ChangeDutyCycle(0)
-sleep(5) # 5초 딜레이 후 / 추후 24시간 뒤로 바꾸던가
-# 원상 복귀
-pwm.ChangeDutyCycle(duty)
-sleep(0.9)
-pwm.ChangeDutyCycle(0)
-sleep(0)
-pwm.ChangeDutyCycle(duty)
-sleep(0.9)
-pwm.ChangeDutyCycle(0)
-sleep(0)
-pwm.ChangeDutyCycle(duty)
-sleep(0.92)
-pwm.ChangeDutyCycle(0)
-sleep(0)
-
-
 # 짝수일 기준
 if (today % 2) == 0:
     print("{0} 은 짝수".format(today))
