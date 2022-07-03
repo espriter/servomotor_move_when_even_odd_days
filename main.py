@@ -23,21 +23,21 @@ pwm.ChangeDutyCycle(duty)
 
 print("{0} is Even".format(today))
 pwm.ChangeDutyCycle(duty)
-sleep(1)
+sleep(0.9)
 # 짝수 Flag Up
 pwm.ChangeDutyCycle(0)
 sleep(5) # 5초 딜레이 후 / 추후 24시간 뒤로 바꾸던가
 # 원상 복귀
 pwm.ChangeDutyCycle(duty)
-sleep(1)
+sleep(0.9)
 pwm.ChangeDutyCycle(0)
 sleep(0)
 pwm.ChangeDutyCycle(duty)
-sleep(1)
+sleep(0.9)
 pwm.ChangeDutyCycle(0)
 sleep(0)
 pwm.ChangeDutyCycle(duty)
-sleep(1)
+sleep(0.9)
 pwm.ChangeDutyCycle(0)
 sleep(0)
 
