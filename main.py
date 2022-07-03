@@ -41,48 +41,49 @@ sleep(0.92)
 pwm.ChangeDutyCycle(0)
 sleep(0)
 
-# # 홀수 짝수에 따라 회전 횟수 변경
-# if (today % 2) == 0:
-#    print("{0} is Even".format(today))
-#    pwm.ChangeDutyCycle(duty)
-#    sleep(0.97)
-#    # 짝수 Flag Up
-#    pwm.ChangeDutyCycle(0)
-#    sleep(5) # 5초 딜레이 후 / 추후 24시간 뒤로 바꾸던가
-#    # 원상 복귀
-#    pwm.ChangeDutyCycle(duty)
-#    sleep(0.97)
-#    pwm.ChangeDutyCycle(0)
-#    sleep(0.97)
-#    pwm.ChangeDutyCycle(duty)
-#    sleep(0.97)
-#    pwm.ChangeDutyCycle(0)
-#    sleep(1)
-#    pwm.ChangeDutyCycle(duty)
-#    sleep(0.97)
-#    pwm.ChangeDutyCycle(0)
-#    sleep(0.97)
-#
-# else:
-#    print("{0} is Odd".format(today))
-#    #홀수 flag up
-#    pwm.ChangeDutyCycle(duty)
-#    sleep(0.97)
-#    pwm.ChangeDutyCycle(0)
-#    sleep(0.97) # 5초 딜레이 후 / 추후 24시간 뒤로 바꾸던가
-#    pwm.ChangeDutyCycle(duty)
-#    sleep(0.97)
-#    pwm.ChangeDutyCycle(0)
-#    sleep(0.97)
-#    pwm.ChangeDutyCycle(duty)
-#    sleep(0.97)
-#    pwm.ChangeDutyCycle(0)
-#    sleep(5)
-#    # 원상복귀
-#    pwm.ChangeDutyCycle(duty)
-#    sleep(0.97)
-#    pwm.ChangeDutyCycle(0)
-#    sleep(0.97)
+
+# 짝수일 기준
+if (today % 2) == 0:
+    print("{0} 은 짝수".format(today))
+    pwm.ChangeDutyCycle(duty)
+    sleep(1.05)
+    # Flag Up Start
+    pwm.ChangeDutyCycle(0)
+    print("Flag UP 시작")
+    sleep(5)
+    # Flag Down
+    pwm.ChangeDutyCycle(duty)
+    sleep(0.9)
+    pwm.ChangeDutyCycle(0)
+    sleep(0)
+    pwm.ChangeDutyCycle(duty)
+    sleep(0.9)
+    pwm.ChangeDutyCycle(0)
+    sleep(0)
+    pwm.ChangeDutyCycle(duty)
+    sleep(0.92)
+    pwm.ChangeDutyCycle(0)
+    sleep(0)
+
+# 홀수일 기준
+else:
+    print("{0} 는 홀수".format(today))
+    pwm.ChangeDutyCycle(duty)
+    sleep(1.05)
+    pwm.ChangeDutyCycle(0)
+    sleep(0)
+    pwm.ChangeDutyCycle(duty)
+    sleep(0.9)
+    pwm.ChangeDutyCycle(0)
+    sleep(0)
+    pwm.ChangeDutyCycle(duty)
+    sleep(0.9)
+    pwm.ChangeDutyCycle(0)
+    sleep(5)
+    pwm.ChangeDutyCycle(duty)
+    sleep(0.92)
+    pwm.ChangeDutyCycle(0)
+    sleep(0)
 
 pwm.stop()
 GPIO.cleanup()
