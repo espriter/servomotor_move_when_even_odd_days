@@ -24,22 +24,22 @@ pwm.ChangeDutyCycle(duty)
 print("{0} is Odd".format(today))
 #홀수 flag up
 pwm.ChangeDutyCycle(duty)
-sleep(0.97)
+sleep(0.98)
 pwm.ChangeDutyCycle(0)
-sleep(0.97) # 5초 딜레이 후 / 추후 24시간 뒤로 바꾸던가
+sleep(0.98) # 5초 딜레이 후 / 추후 24시간 뒤로 바꾸던가
 pwm.ChangeDutyCycle(duty)
-sleep(0.97)
+sleep(0.98)
 pwm.ChangeDutyCycle(0)
-sleep(0.97)
+sleep(0.98)
 pwm.ChangeDutyCycle(duty)
-sleep(0.97)
+sleep(0.98)
 pwm.ChangeDutyCycle(0)
 sleep(5)
 # 원상복귀
 pwm.ChangeDutyCycle(duty)
-sleep(0.97)
+sleep(0.98)
 pwm.ChangeDutyCycle(0)
-sleep(0.97)
+sleep(0.98)
 
 
 # # 홀수 짝수에 따라 회전 횟수 변경
