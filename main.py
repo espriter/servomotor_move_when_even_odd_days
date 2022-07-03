@@ -31,15 +31,15 @@ sleep(5) # 5초 딜레이 후 / 추후 24시간 뒤로 바꾸던가
 pwm.ChangeDutyCycle(duty)
 sleep(1)
 pwm.ChangeDutyCycle(0)
-sleep(1)
+sleep(0)
 pwm.ChangeDutyCycle(duty)
 sleep(1)
 pwm.ChangeDutyCycle(0)
-sleep(1)
+sleep(0)
 pwm.ChangeDutyCycle(duty)
 sleep(1)
 pwm.ChangeDutyCycle(0)
-sleep(1)
+sleep(0)
 
 # # 홀수 짝수에 따라 회전 횟수 변경
 # if (today % 2) == 0:
