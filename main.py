@@ -23,7 +23,7 @@ pwm.ChangeDutyCycle(duty)
 
 print("{0} is Even".format(today))
 pwm.ChangeDutyCycle(duty)
-sleep(1.1)
+sleep(1.05)
 # 짝수 Flag Up
 pwm.ChangeDutyCycle(0)
 sleep(5) # 5초 딜레이 후 / 추후 24시간 뒤로 바꾸던가
