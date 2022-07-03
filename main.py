@@ -26,11 +26,8 @@ if (today % 2) == 0:
     print("{0} 은 짝수".format(today))
     pwm.ChangeDutyCycle(duty)
     sleep(1.05)
-    # Flag Up Start
     pwm.ChangeDutyCycle(0)
-    print("Flag UP 시작")
-    sleep(5)
-    # Flag Down
+    sleep(18000)
     pwm.ChangeDutyCycle(duty)
     sleep(0.9)
     pwm.ChangeDutyCycle(0)
@@ -58,7 +55,7 @@ else:
     pwm.ChangeDutyCycle(duty)
     sleep(0.9)
     pwm.ChangeDutyCycle(0)
-    sleep(5)
+    sleep(18000)
     pwm.ChangeDutyCycle(duty)
     sleep(0.92)
     pwm.ChangeDutyCycle(0)
