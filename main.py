@@ -2,6 +2,7 @@ import RPi.GPIO as GPIO
 import datetime
 from time import sleep
 import requests
+import json
 
 # 초기 설정
 servo_pin = 18
@@ -18,8 +19,10 @@ f.close()
 # 슬랙 메시지 설정
 def send_message_to_slack(text):
     url = url_read
-    payload = { "Alarm! " : text }
-    requests.post(url, json=payload)
+    headers = {"Content-type": "application/json"}
+    data = {"text": text }
+    res = requests.post(url_read, headers=headers, data=json.dumps(data))
+    print(res.status_code)
 
 # 서보모터 init
 GPIO.setmode(GPIO.BCM)
@@ -31,7 +34,7 @@ pwm.start(0)  # 서보의 0도 위치(0.6ms)이동:값 3.0은 pwm주기인 20ms�
 degree = 90
 duty = SERVO_MIN_DUTY+(degree*(SERVO_MAX_DUTY-SERVO_MIN_DUTY)/180.0)
 print("Degree: {} to {}(Duty)".format(degree, duty))
-pwm.ChangeDutyCycle(duty)
+
 
 # 짝수일 기준
 if (today % 2) == 0:
@@ -73,7 +76,7 @@ else:
     sleep(0.92)
     pwm.ChangeDutyCycle(0)
     sleep(0)
-    send_message_to_slack("홀수일 깃발이 올라갑니다!")
+    send_message_to_slack("짝수일 깃발이 올라갑니다!")
 
 pwm.stop()
 GPIO.cleanup()
