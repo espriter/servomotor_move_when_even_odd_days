@@ -2,6 +2,7 @@ import RPi.GPIO as GPIO
 import datetime
 from time import sleep
 import requests
+import json
 
 # 초기 설정
 servo_pin = 18
@@ -19,8 +20,10 @@ f.close()
 # 슬랙 메시지 설정
 def send_message_to_slack(text):
     url = url_read
-    payload = { "Alarm! " : text }
-    requests.post(url, json=payload)
+    headers = {"Content-type": "application/json"}
+    data = {"text": text }
+    res = requests.post(url_read, headers=headers, data=json.dumps(data))
+    print(res.status_code)
 
 # 서보모터 init
 GPIO.setmode(GPIO.BCM)
