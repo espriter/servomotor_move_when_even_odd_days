@@ -13,6 +13,7 @@ today = now.day
 # URL 읽기
 f = open("./webhook_url.txt", 'r')
 url_read = f.readline()
+print("URL 정보", url_read)
 f.close()
 
 # 슬랙 메시지 설정
