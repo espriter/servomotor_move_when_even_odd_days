@@ -55,7 +55,7 @@ if (today % 2) == 0:
     pwm.ChangeDutyCycle(duty)
     sleep(0.92)
     pwm.ChangeDutyCycle(0)
-    sleep(0
+    sleep(0)
     send_message_to_slack("짝수일 깃발이 올라갑니다!")
 
 # 홀수일 기준
