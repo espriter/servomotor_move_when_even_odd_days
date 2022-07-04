@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
 import datetime
 from time import sleep
+import requests
 
 # 초기 설정
 servo_pin = 18
@@ -8,6 +9,17 @@ SERVO_MAX_DUTY = 12   # 서보의 최대(180도) 위치의 주기
 SERVO_MIN_DUTY = 3    # 서보의 최소(0도) 위치의 주기
 now = datetime.datetime.now()
 today = now.day
+
+# URL 읽기
+f = open("./webhook_url.txt", 'r')
+url_read = f.readline()
+f.close()
+
+# 슬랙 메시지 설정
+def send_message_to_slack(text):
+    url = url_read
+    payload = { "Alarm! " : text }
+    requests.post(url, json=payload)
 
 # 서보모터 init
 GPIO.setmode(GPIO.BCM)
@@ -24,6 +36,7 @@ pwm.ChangeDutyCycle(duty)
 # 짝수일 기준
 if (today % 2) == 0:
     print("{0} 은 짝수".format(today))
+    send_message_to_slack("짝수일 깃발이 올라갑니다!")
     pwm.ChangeDutyCycle(duty)
     sleep(1.05)
     pwm.ChangeDutyCycle(0)
@@ -44,6 +57,7 @@ if (today % 2) == 0:
 # 홀수일 기준
 else:
     print("{0} 는 홀수".format(today))
+    send_message_to_slack("홀수일 깃발이 올라갑니다!")
     pwm.ChangeDutyCycle(duty)
     sleep(1.05)
     pwm.ChangeDutyCycle(0)
@@ -63,3 +77,4 @@ else:
 
 pwm.stop()
 GPIO.cleanup()
+
