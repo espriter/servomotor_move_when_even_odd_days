@@ -2,7 +2,6 @@ import RPi.GPIO as GPIO
 import datetime
 from time import sleep
 import requests
-import json
 
 # 초기 설정
 servo_pin = 18
@@ -14,16 +13,13 @@ today = now.day
 # URL 읽기
 f = open("./webhook_url.txt", 'r')
 url_read = f.readline()
-print("URL 정보", url_read)
 f.close()
 
 # 슬랙 메시지 설정
 def send_message_to_slack(text):
     url = url_read
-    headers = {"Content-type": "application/json"}
-    data = {"text": text }
-    res = requests.post(url_read, headers=headers, data=json.dumps(data))
-    print(res.status_code)
+    payload = { "Alarm! " : text }
+    requests.post(url, json=payload)
 
 # 서보모터 init
 GPIO.setmode(GPIO.BCM)
@@ -40,7 +36,6 @@ pwm.ChangeDutyCycle(duty)
 # 짝수일 기준
 if (today % 2) == 0:
     print("{0} 은 짝수".format(today))
-    send_message_to_slack("짝수일 깃발이 올라갑니다!")
     pwm.ChangeDutyCycle(duty)
     sleep(1.05)
     pwm.ChangeDutyCycle(0)
@@ -57,11 +52,11 @@ if (today % 2) == 0:
     sleep(0.92)
     pwm.ChangeDutyCycle(0)
     sleep(0)
+    send_message_to_slack("짝수일 깃발이 올라갑니다!")
 
 # 홀수일 기준
 else:
     print("{0} 는 홀수".format(today))
-    send_message_to_slack("홀수일 깃발이 올라갑니다!")
     pwm.ChangeDutyCycle(duty)
     sleep(1.05)
     pwm.ChangeDutyCycle(0)
@@ -78,6 +73,7 @@ else:
     sleep(0.92)
     pwm.ChangeDutyCycle(0)
     sleep(0)
+    send_message_to_slack("홀수일 깃발이 올라갑니다!")
 
 pwm.stop()
 GPIO.cleanup()

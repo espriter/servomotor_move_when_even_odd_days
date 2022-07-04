@@ -35,12 +35,11 @@ pwm.start(0)  # 서보의 0도 위치(0.6ms)이동:값 3.0은 pwm주기인 20ms�
 degree = 90
 duty = SERVO_MIN_DUTY+(degree*(SERVO_MAX_DUTY-SERVO_MIN_DUTY)/180.0)
 print("Degree: {} to {}(Duty)".format(degree, duty))
-pwm.ChangeDutyCycle(duty)
+
 
 # 짝수일 기준
 if (today % 2) == 0:
     print("{0} 은 짝수".format(today))
-    send_message_to_slack("짝수일 깃발이 올라갑니다!")
     pwm.ChangeDutyCycle(duty)
     sleep(1.05)
     pwm.ChangeDutyCycle(0)
@@ -56,12 +55,12 @@ if (today % 2) == 0:
     pwm.ChangeDutyCycle(duty)
     sleep(0.92)
     pwm.ChangeDutyCycle(0)
-    sleep(0)
+    sleep(0
+    send_message_to_slack("짝수일 깃발이 올라갑니다!")
 
 # 홀수일 기준
 else:
     print("{0} 는 홀수".format(today))
-    send_message_to_slack("홀수일 깃발이 올라갑니다!")
     pwm.ChangeDutyCycle(duty)
     sleep(1.05)
     pwm.ChangeDutyCycle(0)
@@ -78,6 +77,7 @@ else:
     sleep(0.92)
     pwm.ChangeDutyCycle(0)
     sleep(0)
+    send_message_to_slack("짝수일 깃발이 올라갑니다!")
 
 pwm.stop()
 GPIO.cleanup()
