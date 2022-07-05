@@ -12,7 +12,7 @@ now = datetime.datetime.now()
 today = now.day
 
 # URL 읽기
-f = open("./webhook_url.txt", 'r')
+f = open("/home/espriter/github/servomotor_move_when_even_odd_days/webhook_url.txt", 'r')
 url_read = f.readline()
 f.close()
 
@@ -76,7 +76,7 @@ else:
     sleep(0.92)
     pwm.ChangeDutyCycle(0)
     sleep(0)
-    send_message_to_slack("짝수일 깃발이 올라갑니다!")
+    send_message_to_slack("홀수일 깃발이 올라갑니다!")
 
 pwm.stop()
 GPIO.cleanup()
