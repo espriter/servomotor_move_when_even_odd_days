@@ -55,7 +55,7 @@ if (today % 2) == 0:
     sleep(0.92)
     pwm.ChangeDutyCycle(0)
     sleep(0)
-    send_message_to_slack("짝수일 깃발이 올라갑니다!")
+    send_message_to_slack("오늘은 짝수 날짜 랍니다! 🚩")
 
 # 홀수일 기준
 else:
@@ -76,7 +76,7 @@ else:
     sleep(0.92)
     pwm.ChangeDutyCycle(0)
     sleep(0)
-    send_message_to_slack("홀수일 깃발이 올라갑니다!")
+    send_message_to_slack("오늘은 홀수 날짜 랍니다! 🏳️")
 
 pwm.stop()
 GPIO.cleanup()
